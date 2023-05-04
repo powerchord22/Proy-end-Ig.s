@@ -2,7 +2,7 @@ import pool from "../db.js";
 
 export const allPacientes = async (req, res, next) => {
       try {
-        const allPacientes = await pool.query("SELECT * FROM pacientes");
+        const allPacientes = await pool.query("SELECT * FROM pacientes ORDER BY id ASC");
         res.json(allPacientes.rows);
         // console.table(allPacientes.rows);
         res.send("devolviendo lista de pacientes");
@@ -11,6 +11,18 @@ export const allPacientes = async (req, res, next) => {
     
     }
 };
+
+// export const orderPacientes = async (req, res, next) => {
+//       try {
+//         const allPacientes = await pool.query("SELECT * FROM pacientes ORDER BY rut DESC");
+//         res.json(allPacientes.rows);
+//         // console.table(allPacientes.rows);
+//         res.send("devolviendo lista de pacientes");
+//       } catch (error) {
+//         console.log(error.message);
+    
+//     }
+// };
 
 export const getPaciente = async (req, res, next) => {
   try {

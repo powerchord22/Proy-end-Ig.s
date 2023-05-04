@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Formulario para editar</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    </head>
+<body class="container">
+    <div class="alert alert-warning" role="alert">
+        <h4>Verifica bien los datos y corrobora ingresar bien tu rut</h4>
+      </div>
+      
+    <% pac.forEach((pac)=>{ %>
+    <div class="container mt-4">
+        <div class="card border-secondary">
+            <div class="card-header">Editar Registro</div>
+            <div class="card-body">
+                <form action="/update" method="POST">
+                    <input id="id" name="id" value="<%=pac.id %>" hidden> 
+                    <div class="mb-3">
+                        <label for="user" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" value="<%= pac.nombre %>" tabindex="1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="user" class="form-label">Rut </label>
+                        <input type="text" class="form-control" id="rut" name="rut" tabindex="1" value="<%= pac.rut %>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="user" class="form-label">Direccion</label>
+                        <input type="text" class="form-control" id="direccion" name="direccion" tabindex="1" value="<%= pac.direccion %>">
+                    </div>
+                    <!-- <div class="mb-3">
+                         <label for="user" class="form-label">Asesoria</label>
+                         <input type="text" class="form-control" id="" name="asesoria" tabindex="1" value="<%= pac.asesoria%>">    
+                    </div>  -->
+                    <div class="mb3">
+                        <select id="asesoria" name="asesoria" class="form-select bg-white" 
+                        aria-label="Default select example" tabindex="2" required >
+                        <option value="" selected disabled>Seleccione asesoria</option>
+                        <% profesional.forEach(function(prof) { %>
+                         <option value="<%= prof.especialidad %>" ><%= prof.especialidad %></option> 
+                         <% }) %>
+ 
+                     </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="user" class="form-label">Fecha</label>
+                        <input type="text" class="form-control" id="fecha" name="fecha" tabindex="1" value="<% pac.fecha %>">
+                    </div>
+                        <button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
+                            <a href="/" class="btn btn-secondary">Cancelar</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <% }); %>
+        
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+</html> 
+

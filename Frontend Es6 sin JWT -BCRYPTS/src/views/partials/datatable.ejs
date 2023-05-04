@@ -34,6 +34,7 @@
                         <div class="col-sm-12"><input class="form-control" type="text" id="inputRut" placeholder="Buscar por RUT..."></div>
                     </th>
                     <th>Asesoria</th>
+                    <th>IdProf</th>
                     <th>Fecha</th>
                     <th>Configuración</th>
                 </tr>
@@ -45,8 +46,9 @@
                     <td><%= pac.nombre %></td>
                     <td><%= pac.rut %></td>
                     <td><%= pac.asesoria%></td>
+                    <td><%= pac.id_profesional%></td>
                     <td><%= (pac.fecha) ? new Date(pac.fecha).toLocaleDateString('es-ES', {day: '2-digit', month: '2-digit', year: 'numeric'}) : '' %></td>
-                      
+
                     <td>
                         <a href="/edit/<%= pac.id %>"  class="btn btn-outline-primary">Editar<i class="bi bi-pen"></i></a>
                         <!-- <a href="#" id="editar-paciente" data-id="<%= pac.id %>" class="btn btn-outline-primary">Editar<i class="bi bi-pen"></i></a> -->

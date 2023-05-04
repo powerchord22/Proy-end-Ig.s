@@ -1,0 +1,45 @@
+<table class="table table-bordered table-striped table-hover text-center mt-4 border border-light table"
+id="example">
+<thead>
+    <tr class="bg-success text-white border">
+        <th>id</th>
+        <th>Nombre</th>
+        <th>
+            <div class="col-sm-12"><input class="form-control" type="text" id="inputRut"
+                    placeholder="Buscar por RUT..."></div>
+        </th>
+        <th>Asesoria</th>
+        <th>Fecha</th>
+        <th>Configuración</th>
+    </tr>
+</thead>
+<tbody>
+    <% profesional.forEach((pac)=>{ %>
+        <tr>
+            <td>
+                <%= pac.id %>
+            </td>
+            <td>
+                <%= pac.nombre %>
+            </td>
+            <td>
+                <%= pac.rut %>
+            </td>
+            <td>
+                <%= pac.asesoria%>
+            </td>
+            <td>
+                <%= pac.id_profesional%>
+            </td>
+    
+        
+                <a href="/edit/<%= pac.id %>" class="btn btn-outline-primary">Editar<i
+                        class="bi bi-pen"></i></a>
+                <!-- <a href="#" id="editar-paciente" data-id="<%= pac.id %>" class="btn btn-outline-primary">Editar<i class="bi bi-pen"></i></a> -->
+                <a href="/delete/<%= pac.id %>" class="btn btn-outline-danger delete-btn">Borrar <i
+                        class="bi bi-x-octagon"></i></a>
+            </td>
+        </tr>
+        <% }) %>
+</tbody>
+</table>
